@@ -23,5 +23,11 @@ public class MainController {
         return new ResponseEntity<>(userService.index(username), HttpStatus.OK);
     }
 
+    @GetMapping("/create")
+    public ResponseEntity create() {
+        userService.create();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 }

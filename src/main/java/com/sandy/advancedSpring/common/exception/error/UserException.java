@@ -1,6 +1,6 @@
-package com.sandy.advancedSpring.exception.error;
+package com.sandy.advancedSpring.common.exception.error;
 
-import com.sandy.advancedSpring.exception.ErrorCode;
+import com.sandy.advancedSpring.common.exception.ErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

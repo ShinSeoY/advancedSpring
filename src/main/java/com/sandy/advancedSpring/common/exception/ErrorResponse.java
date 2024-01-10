@@ -1,4 +1,4 @@
-package com.sandy.advancedSpring.exception;
+package com.sandy.advancedSpring.common.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

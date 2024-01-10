@@ -1,8 +1,8 @@
-package com.sandy.advancedSpring.exception;
+package com.sandy.advancedSpring.common.exception;
 
-import com.sandy.advancedSpring.exception.error.InvalidValueException;
-import com.sandy.advancedSpring.exception.error.NotFoundException;
-import com.sandy.advancedSpring.exception.error.UserException;
+import com.sandy.advancedSpring.common.exception.error.InvalidValueException;
+import com.sandy.advancedSpring.common.exception.error.NotFoundException;
+import com.sandy.advancedSpring.common.exception.error.UserException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
