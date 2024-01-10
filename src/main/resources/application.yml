@@ -13,12 +13,23 @@ spring:
   cache:
     ehcache:
       config: classpath:ehcache.xml
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database: mysql
+    naming:
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    database-platform: org.hibernate.dialect.MySQLInnoDBDialect
+
   profiles:
     group:
       local: "local-envs,local-db"
       dev: ""
       production: ""
     active: local
+
 ---
 # local env
 spring.config.activate.on-profile: local-envs
@@ -29,15 +40,13 @@ spring.config.activate.on-profile: local-db
 
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://127.0.0.1:3306/MY_ADVANCED?serverTimezone=UTC&characterEncoding=UTF-8"
-    username: "root"
-    password: "nextage2020!"
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: false
-    database: mysql
-    naming:
-      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    admin:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: "jdbc:mysql://127.0.0.1:3306/my_advanced_admin?serverTimezone=UTC&characterEncoding=UTF-8"
+      username: "root"
+      password: "nextage2020!"
+    member:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: "jdbc:mysql://127.0.0.1:3306/my_advanced_member?serverTimezone=UTC&characterEncoding=UTF-8"
+      username: "root"
+      password: "nextage2020!"
