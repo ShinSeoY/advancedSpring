@@ -31,6 +31,15 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // 2.xx 버전을 위한 JtaTransactionManager
+    implementation 'org.springframework.boot:spring-boot-starter-jta-atomikos'
+
+    // 3.xx 버전을 위한 JtaTransactionManager
+    // https://stackoverflow.com/questions/75949411/how-to-replace-atomikos-in-distributed-transaction-in-spring-boot-3
+
+    // Spring Boot Configuration Annotation Processor not configured 오류 끄기 위한 의존성
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 }
 
 tasks.named('bootBuildImage') {

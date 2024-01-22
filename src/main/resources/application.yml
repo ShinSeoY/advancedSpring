@@ -1,4 +1,6 @@
 ---
+spring.main.allow-bean-definition-overriding: true
+
 spring:
   http:
     multipart:
@@ -40,13 +42,36 @@ spring.config.activate.on-profile: local-db
 
 spring:
   datasource:
-    admin:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: "jdbc:mysql://127.0.0.1:3306/my_advanced_admin?serverTimezone=UTC&characterEncoding=UTF-8"
-      username: "root"
-      password: "nextage2020!"
-    member:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: "jdbc:mysql://127.0.0.1:3306/my_advanced_member?serverTimezone=UTC&characterEncoding=UTF-8"
-      username: "root"
-      password: "nextage2020!"
+    one:
+      xa-properties:
+        url: jdbc:mysql://127.0.0.1:3306/jta_1?serverTimezone=UTC&characterEncoding=UTF-8
+        user: root
+        password: nextage2020!
+      xa-data-source-class-name: com.mysql.cj.jdbc.MysqlXADataSource
+      unique-resource-name: 'one'
+      test-query: SELECT 1
+      min-pool-size: 5
+      max-pool-size: 10
+    two:
+      xa-properties:
+        url: jdbc:mysql://127.0.0.1:3306/jta_2?serverTimezone=UTC&characterEncoding=UTF-8
+        user: root
+        password: nextage2020!
+      xa-data-source-class-name: com.mysql.cj.jdbc.MysqlXADataSource
+      unique-resource-name: 'two'
+      min-pool-size: 2
+      max-pool-size: 2
+
+#spring:
+#  datasource:
+#    admin:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      jdbc-url: "jdbc:mysql://127.0.0.1:3306/my_advanced_admin?serverTimezone=UTC&characterEncoding=UTF-8"
+#      username: "root"
+#      password: "nextage2020!"
+#    member:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      jdbc-url: "jdbc:mysql://127.0.0.1:3306/my_advanced_member?serverTimezone=UTC&characterEncoding=UTF-8"
+#      username: "root"
+#      password: "nextage2020!"
+
