@@ -17,5 +17,6 @@ public class AdminMemberRequestDto {
     private String phone;
     private String userUsername;
     private String userPw;
+    private String departmentName;
 
 }

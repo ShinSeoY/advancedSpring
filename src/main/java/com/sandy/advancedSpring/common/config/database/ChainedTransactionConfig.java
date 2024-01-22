@@ -15,11 +15,10 @@ public class ChainedTransactionConfig {
     @Bean
     @Primary    // 이걸 걸어줘야 밑에 두개 디비 모두 트랜잭션이 걸림 각 디비의 transactionManager에는 primary 속성 없어야함
     public PlatformTransactionManager chainedTransactionManager(
-            @Qualifier("myAdminTransactionManager") PlatformTransactionManager myAdminTransactionManager,
-            @Qualifier("myUserTransactionManager") PlatformTransactionManager myUserTransactionManager
-
+            @Qualifier("myUserTransactionManager") PlatformTransactionManager myUserTransactionManager,
+            @Qualifier("myAdminTransactionManager") PlatformTransactionManager myAdminTransactionManager
     ) {
-        return new ChainedTransactionManager(myUserTransactionManager, myAdminTransactionManager);
+        return new ChainedTransactionManager(myUserTransactionManager, myAdminTransactionManager);  // 여기 순서가 중요함 오류가 많이 날것 같은 manager를 생성자 파라미터 뒤에 써주기 여기서는 myAdminTransactionManager가 오류날 가능성이 높다고 가정
     }
 
 }

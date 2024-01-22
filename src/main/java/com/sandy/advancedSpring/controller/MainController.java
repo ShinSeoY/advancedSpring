@@ -34,6 +34,7 @@ public class MainController {
                         .departmentId(1L)
                         .userUsername("user1")
                         .userPw("test1234")
+                        .departmentName("department_1")
                         .build()
         );
         return new ResponseEntity<>(HttpStatus.OK);

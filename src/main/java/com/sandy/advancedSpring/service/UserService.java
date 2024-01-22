@@ -3,9 +3,11 @@ package com.sandy.advancedSpring.service;
 import com.sandy.advancedSpring.common.exception.ErrorCode;
 import com.sandy.advancedSpring.common.exception.error.NotFoundException;
 import com.sandy.advancedSpring.common.exception.error.UserException;
+import com.sandy.advancedSpring.domain.admin.Department;
 import com.sandy.advancedSpring.domain.admin.MyAdmin;
 import com.sandy.advancedSpring.domain.member.MyUser;
 import com.sandy.advancedSpring.dto.AdminMemberRequestDto;
+import com.sandy.advancedSpring.repository.admin.DepartmentRepository;
 import com.sandy.advancedSpring.repository.admin.MyAdminRepository;
 import com.sandy.advancedSpring.repository.member.MyUserRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +23,7 @@ public class UserService {
 
     private final MyUserRepository myUserRepository;
     private final MyAdminRepository myAdminRepository;
+    private final DepartmentRepository departmentRepository;
 
     public MyUser index(String username) {
         MyUser myUser = myUserRepository.findByUsername(username);
@@ -53,6 +56,11 @@ public class UserService {
                 MyUser.builder()
                         .username(adminMemberRequestDto.getUserUsername())
                         .password(adminMemberRequestDto.getUserPw())
+                        .build()
+        );
+        departmentRepository.save(
+                Department.builder()
+                        .name(adminMemberRequestDto.getDepartmentName())
                         .build()
         );
         if (true) {
