@@ -1,6 +1,8 @@
 package com.sandy.advancedSpring.service;
 
+import com.sandy.advancedSpring.common.exception.ErrorCode;
 import com.sandy.advancedSpring.common.exception.error.NotFoundException;
+import com.sandy.advancedSpring.common.exception.error.UserException;
 import com.sandy.advancedSpring.domain.admin.MyAdmin;
 import com.sandy.advancedSpring.domain.member.MyUser;
 import com.sandy.advancedSpring.dto.AdminMemberRequestDto;
@@ -9,6 +11,8 @@ import com.sandy.advancedSpring.repository.member.MyUserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @Slf4j
 @Service
@@ -35,6 +39,7 @@ public class UserService {
                 .build());
     }
 
+    @Transactional
     public void insertAdminWithMember(AdminMemberRequestDto adminMemberRequestDto) {
         myAdminRepository.save(
                 MyAdmin.builder()
@@ -44,13 +49,15 @@ public class UserService {
                         .departmentId(adminMemberRequestDto.getDepartmentId())
                         .build()
         );
-
         myUserRepository.save(
                 MyUser.builder()
                         .username(adminMemberRequestDto.getUserUsername())
                         .password(adminMemberRequestDto.getUserPw())
                         .build()
         );
+        if (true) {
+            throw new UserException(ErrorCode.INVALID);
+        }
     }
 
 

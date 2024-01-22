@@ -1,5 +1,6 @@
 package com.sandy.advancedSpring.controller;
 
+import com.sandy.advancedSpring.dto.AdminMemberRequestDto;
 import com.sandy.advancedSpring.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,16 @@ public class MainController {
 
     @GetMapping("/create")
     public ResponseEntity create() {
-        userService.create();
+        userService.insertAdminWithMember(
+                AdminMemberRequestDto.builder()
+                        .adminUsername("admin1")
+                        .adminPw("test1234")
+                        .phone("01011111111")
+                        .departmentId(1L)
+                        .userUsername("user1")
+                        .userPw("test1234")
+                        .build()
+        );
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
