@@ -21,6 +21,7 @@ import javax.sql.DataSource;
         transactionManagerRef = "myUserTransactionManager"
 )
 public class MyUserConfiguration {
+
     @Bean(name = "myUserEntityManager")
     public LocalContainerEntityManagerFactoryBean myUserEntityManager() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();

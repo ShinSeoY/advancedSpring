@@ -1,7 +1,11 @@
 ---
 spring.main.allow-bean-definition-overriding: true
 
+
 spring:
+  batch:
+    jdbc:
+      initialize-schema: always
   http:
     multipart:
       max-file-size: 5MB
