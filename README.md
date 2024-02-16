@@ -15,9 +15,9 @@ JUnit <br/>
 > - Multi Database 다중 데이터베이스 <br/><br/>
 > - Distributed Transactions 분산 트랜잭션
 >     - ChainedTransactionManager </br>
->     - JTA
-> - Custom Exception
-> - JUnit
+>     - JTA <br/><br/>
+> - Custom Exception <br/><br/>
+> - JUnit <br/><br/>
 > - Spring Batch
 <br/>
 <br/>
