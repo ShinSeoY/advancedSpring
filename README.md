@@ -18,7 +18,8 @@ JUnit <br/>
 >     - JTA <br/><br/>
 > - Custom Exception <br/><br/>
 > - JUnit <br/><br/>
-> - Spring Batch
+> - Spring Batch (적용예정) <br/><br/>
+> - RestTemplate을 활용한 외부 api 호출 (적용예정) 
 <br/>
 <br/>
 
