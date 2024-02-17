@@ -9,6 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 @SpringBootTest
 class UserServiceTests {
 
@@ -18,35 +21,32 @@ class UserServiceTests {
     private UserService userService;
 
     @Test
-    void contextLoads() {
-//        index("sandy1");
-        insertAdminWithMember(
-                AdminMemberRequestDto.builder()
-                        .adminUsername("admin1")
-                        .adminPw("test1234")
-                        .phone("01011111111")
-                        .departmentId(1L)
-                        .userUsername("user1")
-                        .userPw("test1234")
-                        .build()
-        );
+    void insertAdminWithMember() {
+        // Given
+        AdminMemberRequestDto adminMemberRequestDto = AdminMemberRequestDto.builder()
+                .adminUsername("admin1")
+                .adminPw("test1234")
+                .phone("01011111111")
+                .departmentId(1L)
+                .userUsername("user1")
+                .userPw("test1234")
+                .build();
+
+        // When & Then
+        assertDoesNotThrow(() -> userService.insertAdminWithMember(adminMemberRequestDto));
     }
 
-    private void index(String username) {
-        try {
-            MyUser myUser = userService.index(username);
-            log.info("** myUser : {}", myUser);
-        } catch (Exception e) {
-            log.error(e.toString());
-        }
-    }
+    @Test
+    void index() {
+        // Given
+        String username = "sandy2";
 
-    private void insertAdminWithMember(AdminMemberRequestDto adminMemberRequestDto) {
-        try {
-            userService.insertAdminWithMember(adminMemberRequestDto);
-        } catch (Exception e) {
-            log.error(e.toString());
-        }
+        // When
+        MyUser myUser = userService.index(username);
+
+        // Then
+        assertDoesNotThrow(() -> userService.index(username));
+        assertNotNull(myUser);
     }
 
 }
