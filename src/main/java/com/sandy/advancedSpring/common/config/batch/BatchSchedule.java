@@ -30,7 +30,7 @@ public class BatchSchedule {
         JobParameters jobParameters = new JobParameters(confMap);
 
         try {
-            jobLauncher.run(batchJobConfig.ExampleJob(), jobParameters);
+            jobLauncher.run(batchJobConfig.miracleMorning(), jobParameters);
         } catch (JobExecutionAlreadyRunningException | JobInstanceAlreadyCompleteException
                  | JobParametersInvalidException | org.springframework.batch.core.repository.JobRestartException e) {
             log.error(e.getMessage());
