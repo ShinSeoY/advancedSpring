@@ -20,7 +20,7 @@ JUnit <br/>
 > - JUnit <br/><br/>
 > - Spring Batch<br/><br/>
 > - Spring Scheduler<br/><br/>
-> - RestTemplate을 활용한 외부 api 호출 (적용예정) 
+> - RestTemplate을 활용한 외부 api 호출
 <br/>
 <br/>
 
